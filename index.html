@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WIX Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         /* Base styles */
         :root {
-            --primary: #10bb35;
-            --primary-dark: #0d9d2c;
-            --secondary: #2d2d2d;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --dark: #343a40;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #93c5fd;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --dark: #1e293b;
         }
         
         * {
@@ -48,6 +50,10 @@
             font-weight: 700;
         }
         
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
         p {
             margin-bottom: 15px;
             color: var(--gray);
@@ -64,7 +70,7 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(16, 187, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -133,15 +139,26 @@
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary);
             display: flex;
             align-items: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
         }
         
-        .logo i {
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
         }
         
         .nav-links {
@@ -185,7 +202,7 @@
             padding-top: 180px;
             padding-bottom: 120px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
             position: relative;
         }
         
@@ -199,6 +216,11 @@
             margin-bottom: 20px;
             line-height: 1.2;
             animation: fadeInDown 1s ease;
+            color: var(--secondary);
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
         }
         
         .hero p {
@@ -249,6 +271,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            border-top: 4px solid var(--primary);
         }
         
         .service-card:before {
@@ -350,7 +373,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(16, 187, 53, 0.8) 0%, rgba(13, 157, 44, 0.9) 100%);
+            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.8) 0%, rgba(29, 78, 216, 0.9) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -376,6 +399,96 @@
         
         .portfolio-overlay p {
             color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .testimonials .section-title h2 {
+            color: white;
+        }
+        
+        .testimonials .section-title h2:after {
+            background-color: white;
+        }
+        
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: 350px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 60px;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.2);
+            font-family: sans-serif;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid white;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .testimonial-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+            font-size: 14px;
         }
         
         /* About Section */
@@ -449,59 +562,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 20px rgba(16, 187, 53, 0.4);
+            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
         }
         
         .experience-badge span:first-child {
             font-size: 30px;
             font-weight: 700;
             line-height: 1;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            position: relative;
-        }
-        
-        .testimonials .section-title h2 {
-            color: white;
-        }
-        
-        .testimonials .section-title h2:after {
-            background-color: white;
-        }
-        
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            margin: 20px;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            font-size: 18px;
-        }
-        
-        .testimonial-role {
-            font-size: 14px;
-            opacity: 0.8;
         }
         
         /* Contact Section */
@@ -565,7 +632,7 @@
         .form-control:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(16, 187, 53, 0.2);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
         }
         
         textarea.form-control {
@@ -643,7 +710,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--primary-light);
             padding-left: 5px;
         }
         
@@ -753,9 +820,10 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <i class="fas fa-code"></i>WIX Developer
-                </div>
+                <a href="#" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span>Believe</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -772,7 +840,7 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Professional WIX Website Development</h1>
+                <h1>Professional <span>WIX</span> Website Development</h1>
                 <p>I create stunning, responsive, and functional websites using WIX platform to help businesses establish a strong online presence and achieve their digital goals.</p>
                 <div class="hero-btns">
                     <a href="https://wa.me/16103162048" class="btn">Let's Chat on WhatsApp</a>
@@ -897,6 +965,62 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What my clients say about my work</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Working with Believe was a game-changer for our business. Our new website not only looks amazing but has increased our online sales by 40% in the first month!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, Fashion Boutique</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Believe transformed our outdated website into a modern, responsive platform that truly represents our brand. The process was smooth and professional from start to finish.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Michael Chen</h4>
+                            <p>Marketing Director, Tech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The WIX website Believe created for our restaurant has dramatically improved our online reservations. Customers love the easy-to-use interface and beautiful design.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Elena Rodriguez">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Elena Rodriguez</h4>
+                            <p>Owner, Bella Cucina</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
@@ -959,23 +1083,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>What my clients say about my work</p>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-item">
-                    <p class="testimonial-text">"Working with this WIX developer was a game-changer for our business. Our new website not only looks amazing but has increased our online sales by 40% in the first month!"</p>
-                    <h4 class="testimonial-author">Sarah Johnson</h4>
-                    <p class="testimonial-role">CEO, Fashion Boutique</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1009,7 +1116,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>contact@example.com</p>
+                            <p>contact@believe.com</p>
                         </div>
                     </div>
                     <div class="contact-method">
@@ -1057,7 +1164,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <h3>WIX Developer</h3>
+                    <h3>Believe</h3>
                     <p>Professional WIX website development services to help your business grow online with beautiful, functional websites.</p>
                     <div class="social-links">
                         <a href="https://www.tiktok.com/@believe.h0" class="social-link">
@@ -1099,12 +1206,12 @@
                     <ul class="footer-links">
                         <li><a href="https://wa.me/16103162048">WhatsApp: +1 (610) 316-2048</a></li>
                         <li><a href="https://www.tiktok.com/@believe.h0">TikTok: @believe.h0</a></li>
-                        <li><a href="mailto:contact@example.com">Email: contact@example.com</a></li>
+                        <li><a href="mailto:contact@believe.com">Email: contact@believe.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 WIX Developer Portfolio. All rights reserved.</p>
+                <p>&copy; 2023 Believe WIX Developer Portfolio. All rights reserved.</p>
             </div>
         </div>
     </footer>
