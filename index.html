@@ -249,6 +249,38 @@
             color: white;
         }
         
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 70px 0;
+            text-align: center;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .stat-text {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         /* Services Section */
         .services {
             background-color: white;
@@ -318,9 +350,59 @@
             transition: all 0.3s ease;
         }
         
+        /* Process Section */
+        .process {
+            background-color: var(--light);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -15%;
+            width: 30%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
         /* Portfolio Section */
         .portfolio {
-            background-color: var(--light);
+            background-color: white;
         }
         
         .portfolio-filters {
@@ -339,6 +421,7 @@
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s ease;
+            border: 1px solid var(--primary-light);
         }
         
         .filter-btn.active, .filter-btn:hover {
@@ -493,7 +576,7 @@
         
         /* About Section */
         .about {
-            background-color: white;
+            background-color: var(--light);
         }
         
         .about-content {
@@ -569,6 +652,33 @@
             font-size: 30px;
             font-weight: 700;
             line-height: 1;
+        }
+        
+        /* Clients Section */
+        .clients {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .clients-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .client-logo {
+            height: 80px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            filter: grayscale(100%);
+        }
+        
+        .client-logo:hover {
+            opacity: 1;
+            filter: grayscale(0);
         }
         
         /* Contact Section */
@@ -789,6 +899,10 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+            
+            .process-step:not(:last-child):after {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
@@ -812,6 +926,11 @@
             section {
                 padding: 70px 0;
             }
+            
+            .stats-container {
+                flex-direction: column;
+                gap: 40px;
+            }
         }
     </style>
 </head>
@@ -827,9 +946,10 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -845,6 +965,30 @@
                 <div class="hero-btns">
                     <a href="https://wa.me/16103162048" class="btn">Let's Chat on WhatsApp</a>
                     <a href="#portfolio" class="btn btn-secondary">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-text">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-text">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-text">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-text">Avg. Growth</div>
                 </div>
             </div>
         </div>
@@ -899,6 +1043,38 @@
                     </div>
                     <h3>Website Migration</h3>
                     <p>Seamlessly migrate your existing website to WIX without losing SEO value or functionality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Process</h2>
+                <p>How I deliver exceptional results for every project</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Discovery</h3>
+                    <p>I begin by understanding your business, goals, and target audience to create a strategic plan.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design</h3>
+                    <p>I create mockups and prototypes to visualize the final product before development begins.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Development</h3>
+                    <p>I build your website using WIX's powerful tools while ensuring optimal performance.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Launch</h3>
+                    <p>I thoroughly test and optimize your website before the official launch.</p>
                 </div>
             </div>
         </div>
@@ -961,6 +1137,20 @@
                         <p>Fitness website with class schedule and membership signup</p>
                     </div>
                 </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1812&q=80" alt="Tech Website" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Tech Startup</h3>
+                        <p>Modern website for a technology startup company</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Education Website" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Online Education</h3>
+                        <p>Educational platform with course management</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1017,6 +1207,23 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Clients I've Worked With</h2>
+                <p>Some of the brands and businesses I've had the pleasure to work with</p>
+            </div>
+            <div class="clients-grid">
+                <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" class="client-logo">
+                <img src="https://logo.clearbit.com/google.com" alt="Google" class="client-logo">
+                <img src="https://logo.clearbit.com/nike.com" alt="Nike" class="client-logo">
+                <img src="https://logo.clearbit.com/coca-cola.com" alt="Coca Cola" class="client-logo">
+                <img src="https://logo.clearbit.com/airbnb.com" alt="Airbnb" class="client-logo">
             </div>
         </div>
     </section>
@@ -1112,6 +1319,24 @@
                     </div>
                     <div class="contact-method">
                         <div class="contact-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>YouTube</h4>
+                            <p><a href="https://www.youtube.com/@believehappy67">@believehappy67</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-pinterest"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Pinterest</h4>
+                            <p><a href="https://pinterest.com/evieamelia653">evieamelia653</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
@@ -1173,11 +1398,11 @@
                         <a href="https://wa.me/16103162048" class="social-link">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://www.youtube.com/@believehappy67" class="social-link">
+                            <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="https://pinterest.com/evieamelia653" class="social-link">
+                            <i class="fab fa-pinterest"></i>
                         </a>
                     </div>
                 </div>
@@ -1196,8 +1421,8 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1206,6 +1431,8 @@
                     <ul class="footer-links">
                         <li><a href="https://wa.me/16103162048">WhatsApp: +1 (610) 316-2048</a></li>
                         <li><a href="https://www.tiktok.com/@believe.h0">TikTok: @believe.h0</a></li>
+                        <li><a href="https://www.youtube.com/@believehappy67">YouTube: @believehappy67</a></li>
+                        <li><a href="https://pinterest.com/evieamelia653">Pinterest: evieamelia653</a></li>
                         <li><a href="mailto:contact@believe.com">Email: contact@believe.com</a></li>
                     </ul>
                 </div>
