@@ -240,9 +240,33 @@
             gap: 20px;
         }
         
+        /* Video Section */
+        .video-section {
+            background-color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 15px;
+        }
+        
         /* About Section */
         .about {
-            background-color: white;
+            background-color: var(--light);
         }
         
         .about-content {
@@ -322,7 +346,7 @@
         
         /* Portfolio Section */
         .portfolio {
-            background-color: var(--light);
+            background-color: white;
         }
         
         .portfolio-grid {
@@ -382,7 +406,7 @@
         
         /* Services Section */
         .services {
-            background-color: white;
+            background-color: var(--light);
         }
         
         .services-grid {
@@ -392,7 +416,7 @@
         }
         
         .service-card {
-            background-color: var(--light);
+            background-color: white;
             padding: 40px 30px;
             border-radius: 10px;
             text-align: center;
@@ -459,7 +483,7 @@
         
         /* Contact Section */
         .contact {
-            background-color: var(--light);
+            background-color: white;
             text-align: center;
         }
         
@@ -561,6 +585,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .video-container iframe {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -618,6 +646,19 @@
             <div class="hero-btns">
                 <a href="https://wa.me/16103162048" class="btn">Let's Chat on WhatsApp</a>
                 <a href="#portfolio" class="btn btn-secondary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>See My Work in Action</h2>
+                <p>Check out this short video showcasing my WIX development skills</p>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/j3DFJUDnz1I" title="WIX Development Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
