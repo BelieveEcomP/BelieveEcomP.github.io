@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIX Developer Portfolio</title>
+    <title>BELIEVE - WIX Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         /* Base styles */
         :root {
-            --primary: #10bb35;
-            --primary-dark: #0d9d2c;
-            --primary-light: #93f9a8;
-            --secondary: #2d2d2d;
-            --light: #f8f9fa;
-            --gray: #6c757d;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #93c5fd;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --gray: #64748b;
             --dark: #1e293b;
         }
         
@@ -48,6 +49,10 @@
             font-weight: 700;
         }
         
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
         p {
             margin-bottom: 15px;
             color: var(--gray);
@@ -64,13 +69,25 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(16, 187, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
         
         .btn:hover {
             background-color: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
         }
         
         .section-title {
@@ -114,15 +131,26 @@
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary);
             display: flex;
             align-items: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
         }
         
-        .logo i {
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
         }
         
         .nav-links {
@@ -145,12 +173,48 @@
             color: var(--primary);
         }
         
+        /* Services Banner */
+        .services-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .services-banner h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .services-scroll {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .service-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .service-item i {
+            font-size: 30px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
         /* Hero Section */
         .hero {
-            padding-top: 150px;
-            padding-bottom: 100px;
+            padding-top: 100px;
+            padding-bottom: 80px;
             text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%);
         }
         
         .hero h1 {
@@ -159,11 +223,21 @@
             line-height: 1.2;
         }
         
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
         .hero p {
             font-size: 1.25rem;
             max-width: 700px;
             margin: 0 auto 30px;
             color: var(--gray);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         
         /* Services Section */
@@ -184,6 +258,7 @@
             text-align: center;
             transition: transform 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary);
         }
         
         .service-card:hover {
@@ -228,7 +303,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(16, 187, 53, 0.8) 0%, rgba(13, 157, 44, 0.9) 100%);
+            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.8) 0%, rgba(29, 78, 216, 0.9) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -256,86 +331,151 @@
             color: rgba(255, 255, 255, 0.9);
         }
         
-        /* Reviews Section */
-        .reviews {
+        /* Process Section */
+        .process {
             background-color: white;
         }
         
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -15%;
+            width: 30%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 30px;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .testimonials .section-title h2 {
+            color: white;
+        }
+        
+        .testimonials .section-title h2:after {
+            background-color: white;
+        }
+        
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
         }
         
-        .review-card {
-            background-color: var(--light);
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1 1 300px;
+            max-width: 350px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .review-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .review-content {
-            padding: 20px;
-        }
-        
-        .review-text {
+        .testimonial-text {
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
-        .reviewer {
+        .testimonial-author {
             font-weight: 600;
-            color: var(--primary);
+            font-size: 18px;
         }
         
-        /* Video Section */
-        .video-section {
-            background-color: var(--light);
-            text-align: center;
-            padding: 100px 0;
-        }
-        
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        .video-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            border-radius: 15px;
+        .testimonial-role {
+            font-size: 14px;
+            opacity: 0.8;
         }
         
         /* About Section */
         .about {
-            background-color: white;
+            background-color: var(--light);
         }
         
         .about-content {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 60px;
         }
         
         .about-text {
             flex: 1;
         }
         
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill {
+            margin-bottom: 20px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            position: relative;
+            width: 0;
+            transition: width 1s ease;
+        }
+        
         .about-image {
             flex: 1;
             text-align: center;
+            position: relative;
         }
         
         .about-image img {
@@ -344,9 +484,32 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .experience-badge span:first-child {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
         /* Contact Section */
         .contact {
-            background-color: var(--light);
+            background-color: white;
             text-align: center;
         }
         
@@ -408,19 +571,7 @@
         }
         
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
+        @media (max-width: 992px) {
             .about-content {
                 flex-direction: column;
             }
@@ -429,8 +580,40 @@
                 margin-top: 40px;
             }
             
-            .video-container iframe {
-                height: 250px;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .services-scroll {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -440,14 +623,16 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <i class="fas fa-code"></i> WIX Developer
-                </div>
+                <a href="#" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span>BELIEVE</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -455,12 +640,40 @@
         </div>
     </header>
 
+    <!-- Services Banner -->
+    <section class="services-banner">
+        <div class="container">
+            <h2>Professional WIX Development Services</h2>
+            <div class="services-scroll">
+                <div class="service-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Website Design</h3>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Development</h3>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>E-Commerce</h3>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Optimization</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Professional WIX Website Development</h1>
-            <p>I create stunning, responsive, and functional websites using WIX platform to help businesses establish a strong online presence.</p>
-            <a href="https://wa.me/16103162048" class="btn">Let's Chat on WhatsApp</a>
+            <h1>Professional <span>WIX</span> Website Development</h1>
+            <p>I create stunning, responsive, and functional websites using WIX platform to help businesses establish a strong online presence and achieve their digital goals.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/16103162048" class="btn">Let's Chat on WhatsApp</a>
+                <a href="#portfolio" class="btn btn-secondary">View My Work</a>
+            </div>
         </div>
     </section>
 
@@ -469,7 +682,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>My Services</h2>
-                <p>Comprehensive WIX website solutions tailored to your needs</p>
+                <p>Comprehensive WIX website solutions tailored to your business needs</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -477,21 +690,74 @@
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <h3>WIX Website Design</h3>
-                    <p>Custom WIX websites designed to reflect your brand identity and engage your audience.</p>
+                    <p>Custom WIX websites designed to reflect your brand identity and engage your audience with modern UI/UX principles.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>Responsive Development</h3>
-                    <p>Websites that look great and function perfectly on all devices and screen sizes.</p>
+                    <p>Websites that look great and function perfectly on all devices and screen sizes with optimized performance.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <h3>E-Commerce Solutions</h3>
-                    <p>Online stores with secure payment processing and inventory management.</p>
+                    <p>Online stores with secure payment processing, inventory management, and customer-friendly shopping experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your website's visibility with search engine optimization techniques tailored for WIX platforms.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Website Maintenance</h3>
+                    <p>Ongoing support and maintenance to keep your website updated, secure, and running smoothly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Website Migration</h3>
+                    <p>Seamlessly migrate your existing website to WIX without losing SEO value or functionality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Process</h2>
+                <p>How I deliver exceptional results for every project</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Discovery</h3>
+                    <p>I begin by understanding your business, goals, and target audience to create a strategic plan.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design</h3>
+                    <p>I create mockups and prototypes to visualize the final product before development begins.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Development</h3>
+                    <p>I build your website using WIX's powerful tools while ensuring optimal performance.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Launch</h3>
+                    <p>I thoroughly test and optimize your website before the official launch.</p>
                 </div>
             </div>
         </div>
@@ -530,78 +796,29 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="reviews" id="reviews">
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>Client Reviews</h2>
-                <p>See what my clients are saying about my work</p>
+                <h2>Client Testimonials</h2>
+                <p>What my clients say about my work</p>
             </div>
-            <div class="reviews-grid">
-                <!-- Review 1 -->
-                <div class="review-card">
-                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4c4b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client project" class="review-image">
-                    <div class="review-content">
-                        <p class="review-text">"Working with this WIX developer was a game-changer for our business. Our new website not only looks amazing but has increased our online sales by 40% in the first month!"</p>
-                        <p class="reviewer">- Sarah Johnson, Fashion Boutique</p>
-                    </div>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Working with BELIEVE was a game-changer for our business. Our new website not only looks amazing but has increased our online sales by 40% in the first month!"</p>
+                    <h4 class="testimonial-author">Sarah Johnson</h4>
+                    <p class="testimonial-role">CEO, Fashion Boutique</p>
                 </div>
-                
-                <!-- Review 2 -->
-                <div class="review-card">
-                    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client project" class="review-image">
-                    <div class="review-content">
-                        <p class="review-text">"The WIX website created for our restaurant has dramatically improved our online reservations. Customers love the easy-to-use interface and beautiful design."</p>
-                        <p class="reviewer">- Elena Rodriguez, Bella Cucina</p>
-                    </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"BELIEVE transformed our outdated website into a modern, responsive platform that truly represents our brand. The process was smooth and professional."</p>
+                    <h4 class="testimonial-author">Michael Chen</h4>
+                    <p class="testimonial-role">Marketing Director, Tech Solutions</p>
                 </div>
-                
-                <!-- Review 3 -->
-                <div class="review-card">
-                    <img src="https://images.unsplash.com/photo-1634942536746-46b9a6de9231?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client project" class="review-image">
-                    <div class="review-content">
-                        <p class="review-text">"I'm extremely impressed with the professionalism and creativity. My portfolio website stands out from competitors and has attracted new clients."</p>
-                        <p class="reviewer">- Michael Chen, Photographer</p>
-                    </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The WIX website BELIEVE created for our restaurant has dramatically improved our online reservations. Customers love the easy-to-use interface."</p>
+                    <h4 class="testimonial-author">Elena Rodriguez</h4>
+                    <p class="testimonial-role">Owner, Bella Cucina</p>
                 </div>
-                
-                <!-- Review 4 -->
-                <div class="review-card">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client project" class="review-image">
-                    <div class="review-content">
-                        <p class="review-text">"The e-commerce site developed for my store is both beautiful and functional. The checkout process is seamless, and inventory management is a breeze."</p>
-                        <p class="reviewer">- James Wilson, Home Decor Store</p>
-                    </div>
-                </div>
-                
-                <!-- Review 5 -->
-                <div class="review-card">
-                    <img src="https://images.unsplash.com/photo-1576153192396-3f058a38d46c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client project" class="review-image">
-                    <div class="review-content">
-                        <p class="review-text">"Our corporate website redesign has received countless compliments. The developer understood our brand identity perfectly."</p>
-                        <p class="reviewer">- Rachel Kim, Tech Solutions Inc.</p>
-                    </div>
-                </div>
-                
-                <!-- Review 6 -->
-                <div class="review-card">
-                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client project" class="review-image">
-                    <div class="review-content">
-                        <p class="review-text">"The blog website created for us is not only visually appealing but also SEO optimized. Our traffic has increased significantly since the launch."</p>
-                        <p class="reviewer">- David Miller, Travel Blog</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Section in the Middle of the Page -->
-    <section class="video-section">
-        <div class="container">
-            <h2>See My Work in Action</h2>
-            <p>Check out this short video showcasing one of my recent WIX projects</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/j3DFJUDnz1I" title="WIX Project Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -615,12 +832,54 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a professional WIX developer with years of experience creating beautiful and functional websites for businesses of all sizes.</p>
-                    <p>My expertise includes custom WIX design, responsive development, e-commerce integration, and SEO optimization to help your website rank higher in search results.</p>
-                    <p>I believe in creating websites that not only look great but also drive results for your business.</p>
+                    <p>I'm a professional WIX developer with over 5 years of experience creating beautiful and functional websites for businesses of all sizes. My passion is helping clients establish a strong online presence that drives growth and achieves their business objectives.</p>
+                    <p>My expertise includes custom WIX design, responsive development, e-commerce integration, and SEO optimization to help your website rank higher in search results and convert visitors into customers.</p>
+                    
+                    <div class="skills">
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>WIX Development</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>UI/UX Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>E-Commerce</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>SEO Optimization</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="WIX Developer">
+                    <div class="experience-badge">
+                        <span>5+</span>
+                        <span>Years Experience</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -661,8 +920,32 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 WIX Developer Portfolio. All rights reserved.</p>
+            <p>&copy; 2023 BELIEVE WIX Developer Portfolio. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Simple script to animate skill bars when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const skills = document.querySelectorAll('.skill-progress');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0';
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 300);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            skills.forEach(skill => {
+                observer.observe(skill);
+            });
+        });
+    </script>
 </body>
 </html>
