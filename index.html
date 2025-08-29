@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIX Developer Portfolio</title>
+    <title>YouTube Lamp Sales Strategy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        /* Base styles */
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --primary-light: #93c5fd;
-            --secondary: #0f172a;
-            --accent: #f59e0b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --dark: #1e293b;
+            --primary: #FF0000;
+            --primary-dark: #CC0000;
+            --primary-light: #FF5C5C;
+            --secondary: #282828;
+            --accent: #FFD700;
+            --light: #F9F9F9;
+            --gray: #606060;
+            --dark: #0F0F0F;
         }
         
         * {
@@ -30,7 +29,6 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         
         .container {
@@ -40,61 +38,50 @@
             padding: 0 20px;
         }
         
-        section {
-            padding: 100px 0;
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
         }
         
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
             margin-bottom: 20px;
-            color: var(--secondary);
-            font-weight: 700;
         }
         
         h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        p {
-            margin-bottom: 15px;
-            color: var(--gray);
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
         }
         
         .btn {
             display: inline-block;
             padding: 14px 35px;
-            background-color: var(--primary);
-            color: white;
+            background-color: var(--accent);
+            color: var(--dark);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .btn:hover {
-            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: #FFE44D;
         }
         
-        .btn:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .btn:hover:after {
-            transform: translateX(0);
+        section {
+            padding: 80px 0;
         }
         
         .section-title {
@@ -120,1360 +107,501 @@
             background-color: var(--primary);
         }
         
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
         
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+        .card:hover {
+            transform: translateY(-10px);
         }
         
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 28px;
-            font-weight: 800;
+        .card h3 {
             color: var(--primary);
-            text-decoration: none;
+            margin-bottom: 15px;
         }
         
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover {
+        .card-icon {
+            font-size: 40px;
             color: var(--primary);
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding-top: 180px;
-            padding-bottom: 120px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
             margin-bottom: 20px;
-            line-height: 1.2;
-            animation: fadeInDown 1s ease;
-            color: var(--secondary);
         }
         
-        .hero h1 span {
-            color: var(--primary);
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            color: var(--gray);
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: none;
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        /* Stats Banner */
-        .stats-banner {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 70px 0;
-            text-align: center;
-        }
-        
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .stat-item {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .stat-text {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* Services Section */
-        .services {
-            background-color: white;
-            position: relative;
-        }
-        
-        .services-grid {
+        .strategy-grid, .description-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .service-card {
-            background-color: var(--light);
-            padding: 40px 30px;
+        .description-template {
+            background: var(--secondary);
+            color: white;
             border-radius: 10px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            border-top: 4px solid var(--primary);
+            padding: 25px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-top: 20px;
         }
         
-        .service-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            transition: height 0.5s ease;
-            z-index: -1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            color: white;
-        }
-        
-        .service-card:hover:before {
-            height: 100%;
-        }
-        
-        .service-card:hover h3,
-        .service-card:hover p,
-        .service-card:hover .service-icon {
-            color: white;
-        }
-        
-        .service-icon {
-            font-size: 50px;
-            color: var(--primary);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .service-card p {
-            transition: all 0.3s ease;
-        }
-        
-        /* Process Section */
-        .process {
-            background-color: var(--light);
-        }
-        
-        .process-steps {
+        .video-idea {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 50px;
+            align-items: center;
+            margin-bottom: 20px;
         }
         
-        .process-step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .process-step:not(:last-child):after {
-            content: '';
-            position: absolute;
-            top: 40px;
-            right: -15%;
-            width: 30%;
-            height: 2px;
-            background-color: var(--primary);
-        }
-        
-        .step-number {
-            width: 80px;
-            height: 80px;
+        .video-number {
+            width: 50px;
+            height: 50px;
             background: var(--primary);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-        }
-        
-        .step-title {
+            font-weight: bold;
             font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--secondary);
+            margin-right: 20px;
+            flex-shrink: 0;
         }
         
-        /* Portfolio Section */
-        .portfolio {
-            background-color: white;
+        /* Reviews Section */
+        .reviews-section {
+            background-color: #f5f5f5;
         }
         
-        .portfolio-filters {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 8px 20px;
-            background: white;
-            border: none;
-            margin: 5px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid var(--primary-light);
-        }
-        
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .portfolio-grid {
+        .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
-        .portfolio-item {
+        .review-card {
+            background: white;
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .review-image {
+            width: 100%;
             height: 250px;
-        }
-        
-        .portfolio-img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
         
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.8) 0%, rgba(29, 78, 216, 0.9) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .review-content {
             padding: 20px;
-            text-align: center;
         }
         
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
+        .review-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--gray);
         }
         
-        .portfolio-item:hover .portfolio-img {
-            transform: scale(1.1);
+        .reviewer {
+            font-weight: 600;
+            color: var(--primary);
         }
         
-        .portfolio-overlay h3 {
-            color: white;
+        .rating {
+            color: var(--accent);
             margin-bottom: 10px;
         }
         
-        .portfolio-overlay p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            position: relative;
-        }
-        
-        .testimonials .section-title h2 {
-            color: white;
-        }
-        
-        .testimonials .section-title h2:after {
-            background-color: white;
-        }
-        
-        .testimonial-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            flex: 1 1 300px;
-            max-width: 350px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-            padding: 0 20px;
-        }
-        
-        .testimonial-text:before,
-        .testimonial-text:after {
-            content: '"';
-            font-size: 60px;
-            position: absolute;
-            color: rgba(255, 255, 255, 0.2);
-            font-family: sans-serif;
-        }
-        
-        .testimonial-text:before {
-            top: -20px;
-            left: -10px;
-        }
-        
-        .testimonial-text:after {
-            bottom: -40px;
-            right: -10px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-        
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 2px solid white;
-        }
-        
-        .testimonial-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .testimonial-info h4 {
-            margin-bottom: 5px;
-            color: white;
-        }
-        
-        .testimonial-info p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0;
-            font-size: 14px;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: var(--light);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .skills {
-            margin-top: 30px;
-        }
-        
-        .skill {
-            margin-bottom: 20px;
-        }
-        
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        
-        .skill-bar {
-            height: 8px;
-            background-color: #e9ecef;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 10px;
-            position: relative;
-            width: 0;
-            transition: width 1s ease;
-        }
-        
-        .about-image {
-            flex: 1;
+        /* Video Section */
+        .video-section {
             text-align: center;
-            position: relative;
-        }
-        
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .experience-badge {
-            position: absolute;
-            bottom: -20px;
-            right: 30px;
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
-        }
-        
-        .experience-badge span:first-child {
-            font-size: 30px;
-            font-weight: 700;
-            line-height: 1;
-        }
-        
-        /* Clients Section */
-        .clients {
-            background-color: white;
-            text-align: center;
-        }
-        
-        .clients-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .client-logo {
-            height: 80px;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-            filter: grayscale(100%);
-        }
-        
-        .client-logo:hover {
-            opacity: 1;
-            filter: grayscale(0);
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--light);
-        }
-        
-        .contact-container {
-            display: flex;
-            gap: 60px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            margin-right: 20px;
-        }
-        
-        .contact-details h4 {
-            margin-bottom: 5px;
-        }
-        
-        .contact-form {
-            flex: 1;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #e9ecef;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* CTA Section */
-        .cta {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
             color: white;
-            text-align: center;
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
-        .cta h2 {
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 15px;
+        }
+        
+        .video-section h2 {
             color: white;
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
             margin-bottom: 40px;
         }
         
-        .footer-col {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-col h3 {
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-col h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary-light);
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
+            padding: 100px 0;
         }
         
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .cta-section h2 {
+            color: white;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                margin-top: 40px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .process-step:not(:last-child):after {
-                display: none;
-            }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            h1 {
+                font-size: 2.5rem;
             }
             
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
+            .tagline {
+                font-size: 1.2rem;
             }
             
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            section {
-                padding: 70px 0;
-            }
-            
-            .stats-container {
-                flex-direction: column;
-                gap: 40px;
+            .video-container iframe {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <div class="logo-icon">B</div>
-                    <span>Believe</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <h1>YouTube Lamp Sales Strategy</h1>
+            <p class="tagline">Turn Your YouTube Channel into a Lamp Selling Machine</p>
+            <a href="#strategy" class="btn">Explore Strategies</a>
         </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Professional <span>WIX</span> Website Development</h1>
-                <p>I create stunning, responsive, and functional websites using WIX platform to help businesses establish a strong online presence and achieve their digital goals.</p>
-                <div class="hero-btns">
-                    <a href="https://wa.me/16103162048" class="btn">Let's Chat on WhatsApp</a>
-                    <a href="#portfolio" class="btn btn-secondary">View My Work</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Banner -->
-    <section class="stats-banner">
-        <div class="container">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-text">Projects Completed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-text">Client Satisfaction</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-text">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">40%</div>
-                    <div class="stat-text">Avg. Growth</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
+    
+    <section id="intro">
         <div class="container">
             <div class="section-title">
-                <h2>My Services</h2>
-                <p>Comprehensive WIX website solutions tailored to your business needs</p>
+                <h2>Why Sell Lamps on YouTube?</h2>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
+            <div class="card">
+                <p>YouTube is the perfect platform for selling lamps because it allows you to showcase their visual appeal, demonstrate lighting effects, and create an emotional connection with potential buyers. With over 2 billion logged-in monthly users, YouTube offers massive reach for your products.</p>
+                <p>By implementing the right strategies, you can transform your YouTube channel into a powerful sales tool that drives consistent revenue through lamp sales.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="strategy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Effective YouTube Sales Strategies</h2>
+            </div>
+            <div class="strategy-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-video"></i>
                     </div>
-                    <h3>WIX Website Design</h3>
-                    <p>Custom WIX websites designed to reflect your brand identity and engage your audience with modern UI/UX principles.</p>
+                    <h3>Showcase in Action</h3>
+                    <p>Create videos that show your lamps in different settings, at various times of day, and demonstrating different lighting effects. This helps viewers visualize the product in their own homes.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3>Responsive Development</h3>
-                    <p>Websites that look great and function perfectly on all devices and screen sizes with optimized performance.</p>
+                    <h3>Educational Content</h3>
+                    <p>Create tutorials on how to choose the right lighting, how to arrange multiple light sources in a room, or how to create specific moods with lighting.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shopping-cart"></i>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>E-Commerce Solutions</h3>
-                    <p>Online stores with secure payment processing, inventory management, and customer-friendly shopping experiences.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>SEO Optimization</h3>
-                    <p>Improve your website's visibility with search engine optimization techniques tailored for WIX platforms.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Website Maintenance</h3>
-                    <p>Ongoing support and maintenance to keep your website updated, secure, and running smoothly.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Website Migration</h3>
-                    <p>Seamlessly migrate your existing website to WIX without losing SEO value or functionality.</p>
+                    <h3>Customer Testimonials</h3>
+                    <p>Feature satisfied customers showing your lamps in their homes and talking about their experience. Authentic social proof significantly boosts conversions.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Process Section -->
-    <section class="process" id="process">
+    
+    <!-- Video Section in the Middle of the Page -->
+    <section class="video-section">
+        <div class="container">
+            <h2>See Our Lamps in Action</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/j3DFJUDnz1I" title="Lamp demonstration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <section id="video-ideas">
         <div class="container">
             <div class="section-title">
-                <h2>My Process</h2>
-                <p>How I deliver exceptional results for every project</p>
+                <h2>Video Ideas for Lamp Sales</h2>
             </div>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Discovery</h3>
-                    <p>I begin by understanding your business, goals, and target audience to create a strategic plan.</p>
+            
+            <div class="video-idea">
+                <div class="video-number">1</div>
+                <div>
+                    <h3>Room Makeovers</h3>
+                    <p>Show how changing just the lighting can transform a room's ambiance completely.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Design</h3>
-                    <p>I create mockups and prototypes to visualize the final product before development begins.</p>
+            </div>
+            
+            <div class="video-idea">
+                <div class="video-number">2</div>
+                <div>
+                    <h3>Comparison Videos</h3>
+                    <p>Compare your lamps with competitors' products or show different models side by side.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Development</h3>
-                    <p>I build your website using WIX's powerful tools while ensuring optimal performance.</p>
+            </div>
+            
+            <div class="video-idea">
+                <div class="video-number">3</div>
+                <div>
+                    <h3>Behind the Scenes</h3>
+                    <p>Show your design process, craftsmanship, or how you create custom pieces.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Launch</h3>
-                    <p>I thoroughly test and optimize your website before the official launch.</p>
+            </div>
+            
+            <div class="video-idea">
+                <div class="video-number">4</div>
+                <div>
+                    <h3>Day vs Night</h3>
+                    <p>Demonstrate how your lamps look during the day (off) and at night (on).</p>
+                </div>
+            </div>
+            
+            <div class="video-idea">
+                <div class="video-number">5</div>
+                <div>
+                    <h3>Installation Guides</h3>
+                    <p>Show how easy it is to set up your lamps, highlighting user-friendly features.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
+    
+    <!-- Reviews Section -->
+    <section class="reviews-section">
         <div class="container">
             <div class="section-title">
-                <h2>My Portfolio</h2>
-                <p>Check out some of my recent WIX projects</p>
+                <h2>Customer Reviews</h2>
+                <p>See what our customers are saying about our lamps</p>
             </div>
-            <div class="portfolio-filters">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">E-Commerce</button>
-                <button class="filter-btn">Business</button>
-                <button class="filter-btn">Portfolio</button>
-                <button class="filter-btn">Blog</button>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80" alt="E-Commerce Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Fashion Store</h3>
-                        <p>E-Commerce website with product filtering and secure checkout</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Business Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Consulting Firm</h3>
-                        <p>Corporate website with service pages and client portal</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Restaurant Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Gourmet Restaurant</h3>
-                        <p>Restaurant website with online reservations and menu</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Portfolio Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Photographer Portfolio</h3>
-                        <p>Portfolio website with gallery and booking system</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Blog Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Travel Blog</h3>
-                        <p>Blog website with content management and subscription</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Fitness Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Fitness Center</h3>
-                        <p>Fitness website with class schedule and membership signup</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1812&q=80" alt="Tech Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Tech Startup</h3>
-                        <p>Modern website for a technology startup company</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Education Website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Online Education</h3>
-                        <p>Educational platform with course management</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>What my clients say about my work</p>
-            </div>
-            <div class="testimonial-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Working with Believe was a game-changer for our business. Our new website not only looks amazing but has increased our online sales by 40% in the first month!
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+            
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4c4b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Modern lamp in living room" class="review-image">
+                    <div class="review-content">
+                        <div class="rating">
+                            ★★★★★
                         </div>
-                        <div class="testimonial-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>CEO, Fashion Boutique</p>
-                        </div>
+                        <p class="review-text">"This lamp completely transformed my living room! The warm light creates such a cozy atmosphere in the evenings. I've received so many compliments from guests."</p>
+                        <p class="reviewer">- Sarah Johnson</p>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Believe transformed our outdated website into a modern, responsive platform that truly represents our brand. The process was smooth and professional from start to finish.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Bedroom lamp" class="review-image">
+                    <div class="review-content">
+                        <div class="rating">
+                            ★★★★★
                         </div>
-                        <div class="testimonial-info">
-                            <h4>Michael Chen</h4>
-                            <p>Marketing Director, Tech Solutions</p>
-                        </div>
+                        <p class="review-text">"I bought this for my bedroom and it's perfect for reading. The dimming feature allows me to adjust the brightness exactly how I want it. Beautiful design too!"</p>
+                        <p class="reviewer">- Michael Thompson</p>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        The WIX website Believe created for our restaurant has dramatically improved our online reservations. Customers love the easy-to-use interface and beautiful design.
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <img src="https://images.unsplash.com/photo-1531058020387-31be55464d3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Desk lamp" class="review-image">
+                    <div class="review-content">
+                        <div class="rating">
+                            ★★★★☆
+                        </div>
+                        <p class="review-text">"Perfect addition to my home office. The adjustable arm makes it easy to direct light exactly where I need it. The modern design looks great on my desk."</p>
+                        <p class="reviewer">- Emily Rodriguez</p>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Elena Rodriguez">
+                </div>
+                
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <img src="https://images.unsplash.com/photo-1513506003901-6e3dec80634a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Minimalist lamp" class="review-image">
+                    <div class="review-content">
+                        <div class="rating">
+                            ★★★★★
                         </div>
-                        <div class="testimonial-info">
-                            <h4>Elena Rodriguez</h4>
-                            <p>Owner, Bella Cucina</p>
+                        <p class="review-text">"I love the minimalist design of this lamp. It provides just the right amount of light without being overpowering. Very easy to assemble and use daily."</p>
+                        <p class="reviewer">- David Kim</p>
+                    </div>
+                </div>
+                
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <img src="https://images.unsplash.com/photo-1593085260707-5377ba37f868?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Library lamp" class="review-image">
+                    <div class="review-content">
+                        <div class="rating">
+                            ★★★★☆
                         </div>
+                        <p class="review-text">"This lamp is both functional and beautiful. The vintage design looks great in my library, and the light is perfect for reading without straining my eyes."</p>
+                        <p class="reviewer">- Jennifer Williams</p>
+                    </div>
+                </div>
+                
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <img src="https://images.unsplash.com/photo-1576153192396-3f058a38d46c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Modern floor lamp" class="review-image">
+                    <div class="review-content">
+                        <div class="rating">
+                            ★★★★★
+                        </div>
+                        <p class="review-text">"Absolutely in love with this floor lamp! It's become the centerpiece of my living room. The smart features allowing me to control it from my phone are fantastic."</p>
+                        <p class="reviewer">- Robert Chen</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Clients Section -->
-    <section class="clients">
+    
+    <section id="descriptions">
         <div class="container">
             <div class="section-title">
-                <h2>Clients I've Worked With</h2>
-                <p>Some of the brands and businesses I've had the pleasure to work with</p>
+                <h2>Effective YouTube Descriptions</h2>
             </div>
-            <div class="clients-grid">
-                <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" class="client-logo">
-                <img src="https://logo.clearbit.com/google.com" alt="Google" class="client-logo">
-                <img src="https://logo.clearbit.com/nike.com" alt="Nike" class="client-logo">
-                <img src="https://logo.clearbit.com/coca-cola.com" alt="Coca Cola" class="client-logo">
-                <img src="https://logo.clearbit.com/airbnb.com" alt="Airbnb" class="client-logo">
+            
+            <div class="card">
+                <h3>Description Template 1: Room Makeover Video</h3>
+                <div class="description-template">
+✨ TRANSFORM Your Space With This Amazing Lamp! ✨
+
+In this video, I show you how this stunning [Lamp Model Name] can completely change the ambiance of your room. Watch as we take a dull space and turn it into a cozy retreat with just the right lighting!
+
+🛒 BUY NOW: [Your Website Link]
+Use code YOUTUBE10 for 10% off!
+
+⏱️ TIMESTAMPS:
+0:00 - Introduction
+0:45 - Before the transformation
+2:30 - Installing the lamp
+4:15 - The big reveal!
+5:30 - Different lighting settings
+7:00 - How to get the best deal
+
+This [Lamp Model Name] features:
+• [Feature 1, e.g., "3-level dimming capability"]
+• [Feature 2, e.g., "Energy-efficient LED technology"]
+• [Feature 3, e.g., "Modern design fits any decor"]
+
+📦 PRODUCT DETAILS:
+• Dimensions: [Size]
+• Materials: [Materials used]
+• Warranty: [Warranty information]
+
+🔗 LINKS:
+Shop this lamp: [Product Link]
+Our website: [Your Website]
+Instagram: [Your Instagram]
+
+Thank you for watching! If you enjoyed this transformation, please give this video a thumbs up and subscribe for more home decor ideas every week!
+
+#LampDesign #HomeDecor #RoomMakeover #LightingIdeas</div>
+            </div>
+            
+            <div class="card">
+                <h3>Description Template 2: Comparison Video</h3>
+                <div class="description-template">
+💡 TOP 5 LAMPS for Your Living Room - Which One Wins?
+
+We tested 5 popular lamps to help you find the perfect lighting solution for your space. Watch to see which one came out on top!
+
+🛒 SHOP OUR WINNER: [Product Link]
+Use code COMPARE15 for 15% off!
+
+⏱️ TIMESTAMPS:
+0:00 - Introduction
+1:20 - Criteria we used for evaluation
+2:45 - Lamp 1: [Product Name]
+4:30 - Lamp 2: [Product Name]
+6:15 - Lamp 3: [Product Name]
+8:00 - Lamp 4: [Product Name]
+9:45 - Lamp 5: [Product Name]
+11:30 - Final comparison
+13:00 - Our top pick!
+
+We evaluated each lamp based on:
+• Brightness and light quality
+• Design and aesthetics
+• Value for money
+• Ease of use
+• Energy efficiency
+
+The [Winning Product Name] stood out because:
+• [Reason 1]
+• [Reason 2]
+• [Reason 3]
+
+🔗 LINKS:
+Shop our top pick: [Product Link]
+Shop all lamps: [Category Link]
+
+Subscribe for more honest comparisons and home decor tips!
+
+#LampComparison #HomeLighting #ProductReview</div>
             </div>
         </div>
     </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
+    
+    <section id="seo">
         <div class="container">
             <div class="section-title">
-                <h2>About Me</h2>
-                <p>Get to know more about my skills and experience</p>
+                <h2>YouTube SEO Tips</h2>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a professional WIX developer with over 5 years of experience creating beautiful and functional websites for businesses of all sizes. My passion is helping clients establish a strong online presence that drives growth and achieves their business objectives.</p>
-                    <p>My expertise includes custom WIX design, responsive development, e-commerce integration, and SEO optimization to help your website rank higher in search results and convert visitors into customers.</p>
-                    
-                    <div class="skills">
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span>WIX Development</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span>UI/UX Design</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span>E-Commerce</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span>SEO Optimization</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%;"></div>
-                            </div>
-                        </div>
-                    </div>
+            
+            <div class="strategy-grid">
+                <div class="card">
+                    <h3>Keyword Research</h3>
+                    <p>Use tools like TubeBuddy or VidIQ to find relevant keywords with high search volume. Include terms like "bedroom lamps," "modern lighting," "desk lamps," etc.</p>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="WIX Developer">
-                    <div class="experience-badge">
-                        <span>5+</span>
-                        <span>Years Experience</span>
-                    </div>
+                
+                <div class="card">
+                    <h3>Engaging Thumbnails</h3>
+                    <p>Create custom thumbnails that show your lamp in an appealing setting. Use contrasting colors and include a compelling text overlay.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>CTAs in Videos</h3>
+                    <p>Include verbal calls-to-action during your videos, directing viewers to your website. Use YouTube's cards and end screens to link to products.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    
+    <section class="cta-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Let's discuss your project and bring your vision to life</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>WhatsApp</h4>
-                            <p><a href="https://wa.me/16103162048">+1 (610) 316-2048</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fab fa-tiktok"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>TikTok</h4>
-                            <p><a href="https://www.tiktok.com/@believe.h0">@believe.h0</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>YouTube</h4>
-                            <p><a href="https://www.youtube.com/@believehappy67">@believehappy67</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fab fa-pinterest"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Pinterest</h4>
-                            <p><a href="https://pinterest.com/evieamelia653">evieamelia653</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>contact@believe.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Location</h4>
-                            <p>Remote - Worldwide</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
+            <h2>Start Selling Your Lamps on YouTube Today!</h2>
+            <p>Implement these strategies to transform your YouTube channel into a powerful sales platform.</p>
+            <a href="#" class="btn">Get Professional Help</a>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Let's work together to create a stunning website that represents your brand and drives results</p>
-            <a href="https://wa.me/16103162048" class="btn">Get Started on WhatsApp</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Believe</h3>
-                    <p>Professional WIX website development services to help your business grow online with beautiful, functional websites.</p>
-                    <div class="social-links">
-                        <a href="https://www.tiktok.com/@believe.h0" class="social-link">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="https://wa.me/16103162048" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@believehappy67" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://pinterest.com/evieamelia653" class="social-link">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">WIX Website Design</a></li>
-                        <li><a href="#">Responsive Development</a></li>
-                        <li><a href="#">E-Commerce Solutions</a></li>
-                        <li><a href="#">SEO Optimization</a></li>
-                        <li><a href="#">Website Maintenance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#process">Process</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://wa.me/16103162048">WhatsApp: +1 (610) 316-2048</a></li>
-                        <li><a href="https://www.tiktok.com/@believe.h0">TikTok: @believe.h0</a></li>
-                        <li><a href="https://www.youtube.com/@believehappy67">YouTube: @believehappy67</a></li>
-                        <li><a href="https://pinterest.com/evieamelia653">Pinterest: evieamelia653</a></li>
-                        <li><a href="mailto:contact@believe.com">Email: contact@believe.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Believe WIX Developer Portfolio. All rights reserved.</p>
-            </div>
+            <p>© 2023 YouTube Lamp Sales Strategy. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Simple script to animate skill bars when they come into view
-        document.addEventListener('DOMContentLoaded', function() {
-            const skills = document.querySelectorAll('.skill-progress');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const width = entry.target.style.width;
-                        entry.target.style.width = '0';
-                        setTimeout(() => {
-                            entry.target.style.width = width;
-                        }, 300);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            skills.forEach(skill => {
-                observer.observe(skill);
-            });
-            
-            // Filter button functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
